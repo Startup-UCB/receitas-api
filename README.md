@@ -40,3 +40,24 @@ Para testar se funcionou, iremos abrir o terminal e digitar "javac --version", e
 
 ![image](https://github.com/user-attachments/assets/a171c508-df22-4aba-81aa-b65809f24923)
 
+
+
+**Instalação Maven**
+
+Agora iremos instalar o Maven, a instalação é parecida:
+
+Primeiro deve-se fazer o download: https://dlcdn.apache.org/maven/maven-3/3.9.9/binaries/apache-maven-3.9.9-bin.zip
+
+Em arquivos de programas criaremos uma pasta chamada **Maven**, como fizemos com **Java**, e extrair os arquivos
+
+Criaremos dessa vez uma variável de ambiente chamada M2_HOME com o caminho C:\Program Files\Maven\apache-maven-3.9.6
+
+Após isso, em path, digitaremos %M2_HOME%\bin", aplicando após isso as alterações
+
+Para verificar se funcionou, digitaremos o comando mvn --version
+
+![image](https://github.com/user-attachments/assets/62dc4122-91b0-4576-9a57-5e5fecee8f1b)
+
+Agora, ao clonar um projeto, digite "mvn clean install", e verifique se tudo rodou corretamente
+
+
