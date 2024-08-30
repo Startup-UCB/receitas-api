@@ -43,7 +43,7 @@ public class EnderecoEntidade {
 
     private String estado;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.EAGER)
     @MapsId
     @JoinColumn(name = "id_usuario")
     private UsuarioEntidade usuario;

@@ -25,7 +25,6 @@ public class UsuarioEntidade {
     @NotBlank
     private String nome;
 
-    @NotBlank
     private String sobrenome;
 
     @NotBlank
@@ -43,6 +42,6 @@ public class UsuarioEntidade {
     @Enumerated(EnumType.STRING)
     private Perfil perfil;
 
-    @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private EnderecoEntidade endereco;
 }

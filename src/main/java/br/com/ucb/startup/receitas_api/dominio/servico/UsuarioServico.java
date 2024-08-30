@@ -13,11 +13,23 @@ public class UsuarioServico {
 
     private final UsuarioAdaptador usuarioAdaptador;
 
-    public Usuario criaUsuario(Usuario usuario){
-        if (usuario.getDocumento().length() == 11 && !StringUtils.hasText(usuario.getDocumento())){
+    public Usuario criaUsuario(Usuario usuario) {
+        validaSobrenome(usuario);
+        return usuarioAdaptador.salvaUsuario(usuario);
+    }
+
+    public Usuario atualizaUsuario(Usuario usuario) {
+        validaSobrenome(usuario);
+        var usuarioSalvo = usuarioAdaptador.consultaUsuario(usuario.getId());
+        var enderecoId = usuarioSalvo.getEndereco().getId();
+        usuario.getEndereco().setId(enderecoId);
+        return usuarioAdaptador.salvaUsuario(usuario);
+    }
+
+    private void validaSobrenome(Usuario usuario){
+        if (usuario.getDocumento().length() == 11 && !StringUtils.hasText(usuario.getSobrenome())) {
             throw new PessoaSemSobrenomeException();
         }
-        return usuarioAdaptador.salvaUsuario(usuario);
     }
 
 }

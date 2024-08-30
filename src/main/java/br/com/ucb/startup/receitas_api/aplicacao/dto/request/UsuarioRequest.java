@@ -20,7 +20,6 @@ public class UsuarioRequest {
     @NotBlank
     private String nome;
 
-    @NotBlank
     private String sobrenome;
 
     @NotBlank
