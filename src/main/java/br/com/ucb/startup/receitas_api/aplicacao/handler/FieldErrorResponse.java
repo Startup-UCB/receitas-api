@@ -8,6 +8,6 @@ import lombok.Getter;
 @Builder
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class FieldErrorResponse {
-    private String field;
-    private String message;
+    private String campo;
+    private String mensagem;
 }
