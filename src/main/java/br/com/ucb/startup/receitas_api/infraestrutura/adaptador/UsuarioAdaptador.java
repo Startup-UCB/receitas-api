@@ -5,7 +5,6 @@ import br.com.ucb.startup.receitas_api.dominio.model.Usuario;
 import br.com.ucb.startup.receitas_api.infraestrutura.mapper.UsuarioMapper;
 import br.com.ucb.startup.receitas_api.infraestrutura.persistencia.UsuarioPersistencia;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Component;
 
 @Component
