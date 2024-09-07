@@ -24,4 +24,14 @@ public class UsuarioPersistencia {
     public Optional<UsuarioEntidade> consultaUsuarioPorId(Long id){
         return usuarioRepositorio.consultaUsuarioPorId(id);
     }
+
+    @Transactional(readOnly = true)
+    public Optional<UsuarioEntidade> consultarUsuarioPorEmail(String email){
+        return usuarioRepositorio.consultaUsuarioPorEmail(email);
+    }
+
+    @Transactional(readOnly = true)
+    public Optional<UsuarioEntidade> consultarUsuarioPorDocumento(String documento){
+        return usuarioRepositorio.consultaUsuarioPorDocumento(documento);
+    }
 }

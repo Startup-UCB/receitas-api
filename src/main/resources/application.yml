@@ -21,3 +21,14 @@ spring:
 
   flyway:
     enabled: true
+
+security:
+  jwt:
+    secret-key: b52eec8c75181513637d7b83783bf6ebf300cf5581c97a7b2979ba2410537e1f
+    expiration-time: 3600000
+
+logging:
+  pattern:
+    console: "[%-5level] [${${spring:spring.application.name}}] [%t] [%date{ISO8601}] [%c{1}:%M:%L] [%X{traceId},%X{spanId}] %msg %n"
+  level:
+    root: INFO

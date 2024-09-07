@@ -2,10 +2,7 @@ package br.com.ucb.startup.receitas_api.infraestrutura.entidades;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity
 @Table(name = "enderecos")
@@ -13,6 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 @Builder
+@ToString
 public class EnderecoEntidade {
 
     @Id
@@ -43,7 +41,8 @@ public class EnderecoEntidade {
 
     private String estado;
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.LAZY)
+    @ToString.Exclude
     @MapsId
     @JoinColumn(name = "id_usuario")
     private UsuarioEntidade usuario;

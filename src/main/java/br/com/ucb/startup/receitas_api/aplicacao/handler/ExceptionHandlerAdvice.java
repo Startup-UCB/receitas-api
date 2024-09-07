@@ -1,5 +1,7 @@
 package br.com.ucb.startup.receitas_api.aplicacao.handler;
 
+import br.com.ucb.startup.receitas_api.dominio.exception.PessoaSemSobrenomeException;
+import br.com.ucb.startup.receitas_api.dominio.exception.UsuarioDiferenteExcepton;
 import br.com.ucb.startup.receitas_api.dominio.exception.UsuarioNaoEncontradoException;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.extern.slf4j.Slf4j;
@@ -44,5 +46,19 @@ public class ExceptionHandlerAdvice {
                 )
         ));
         return new ErrorResponse(HttpStatus.BAD_REQUEST, "A requisição possuí erro(s) em seu corpo", errors);
+    }
+
+    @ResponseStatus(value = HttpStatus.UNPROCESSABLE_ENTITY)
+    @ExceptionHandler(PessoaSemSobrenomeException.class)
+    public ErrorResponse handleException(PessoaSemSobrenomeException e){
+        log.error(METHOD_MESSAGE, e.getClass().getSimpleName(), e.getMessage());
+        return new ErrorResponse(HttpStatus.UNPROCESSABLE_ENTITY, e.getMessage());
+    }
+
+    @ResponseStatus(value = HttpStatus.UNAUTHORIZED)
+    @ExceptionHandler(UsuarioDiferenteExcepton.class)
+    public ErrorResponse handleException(UsuarioDiferenteExcepton e){
+        log.error(METHOD_MESSAGE, e.getClass().getSimpleName(), e.getMessage());
+        return new ErrorResponse(HttpStatus.UNAUTHORIZED, e.getMessage());
     }
 }

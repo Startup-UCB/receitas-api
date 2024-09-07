@@ -14,4 +14,10 @@ public interface UsuarioRepositorio extends JpaRepository<UsuarioEntidade, Long>
     @Query("SELECT u FROM UsuarioEntidade u INNER JOIN u.endereco e WHERE u.id =:id")
     Optional<UsuarioEntidade> consultaUsuarioPorId(@Param("id") Long id);
 
+    @Query("SELECT u FROM UsuarioEntidade u WHERE u.documento =:documento")
+    Optional<UsuarioEntidade> consultaUsuarioPorDocumento(@Param("documento") String documento);
+
+    @Query("SELECT u FROM UsuarioEntidade u WHERE u.email =:email")
+    Optional<UsuarioEntidade> consultaUsuarioPorEmail(@Param("email") String email);
+
 }
